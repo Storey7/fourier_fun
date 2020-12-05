@@ -47,5 +47,6 @@ class ofApp : public ofBaseApp{
 		
 		deque<glm::vec3> wave;
 		vector<CircleClass> circles;
+		glm::vec3 prevPointSum;
 
 };

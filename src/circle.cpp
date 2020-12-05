@@ -28,7 +28,7 @@ void CircleClass::setup()
 
 void CircleClass::update(glm::vec3 prevPoint)
 {
-	prevPoint = point;
+	this->prevPoint = prevPoint;
 	angle += rotateSpeed;
 	angle = ofWrap(angle, 0, TWO_PI);
 	radius = 150 * (4 / (n * PI));
@@ -55,7 +55,7 @@ void CircleClass::draw()
 	ofDrawCircle(prevPoint.x, prevPoint.y, radius);
 
 	ofSetColor(140, 140, 255);
-	ofTranslate(point.x, point.y, 0);
+	ofTranslate(prevPoint.x, prevPoint.y, 0);
 	ofDrawCircle(point, 10);
 
 	ofSetColor(0, 127, 255);
