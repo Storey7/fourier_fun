@@ -7,7 +7,7 @@ public:
 	~CircleClass();
 
 	void setup();
-	void update();
+	void update(glm::vec3 prevPoint);
 	void draw();
 
 	float rotateSpeed;
@@ -15,5 +15,13 @@ public:
 	float posY;
 	float n;
 
+	//initial values
+	float angle;
+	float cosine;
+	float sine;
+	glm::vec3 point;
+	glm::vec3 prevPoint;
+
 	float rotation = 0.0;
+	float radius;
 };
