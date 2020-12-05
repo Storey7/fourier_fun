@@ -2,11 +2,13 @@
 
 CircleClass::CircleClass(int i)
 {
-	n = i * 2 + 1;
+	index = i;
+	n = index * 2 + 1;
 	posX = 0;
 	posY = 0;
 	rotateSpeed = 0.02;
 	radius = 150 * (4 / (n * PI));
+	waveType = 0;
 	
 	//initial values
 	angle = 0;
@@ -31,7 +33,15 @@ void CircleClass::update(glm::vec3 prevPoint)
 	this->prevPoint = prevPoint;
 	angle += rotateSpeed;
 	angle = ofWrap(angle, 0, TWO_PI);
-	radius = 150 * (4 / (n * PI));
+
+	if (waveType == 0) { //Square
+		radius = 150 * (4 / (n * PI));
+		n = index * 2 + 1;
+	}
+	else if (waveType == 1) {
+		radius = 150 * (1 / (n * PI));
+		n = index+1;
+	}
 
 	cosine = cos(n * angle);
 	sine = sin(n * angle);
@@ -62,4 +72,9 @@ void CircleClass::draw()
 	ofDrawLine(0, 0, point.x, point.y);
 
 	ofPopMatrix();
+}
+
+void CircleClass::setWaveType(int w)
+{
+	waveType = w;
 }

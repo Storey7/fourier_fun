@@ -9,11 +9,13 @@ public:
 	void setup();
 	void update(glm::vec3 prevPoint);
 	void draw();
+	void setWaveType(int waveType);
 
 	float rotateSpeed;
 	float posX;
 	float posY;
 	float n;
+	int index;
 
 	//initial values
 	float angle;
@@ -21,6 +23,9 @@ public:
 	float sine;
 	glm::vec3 point;
 	glm::vec3 prevPoint;
+
+	int waveType;
+private:
 
 	float rotation = 0.0;
 	float radius;

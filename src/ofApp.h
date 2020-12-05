@@ -23,6 +23,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		void ringButtonPressed();
+
 		float angle;
 		float sine;
 		float cosine;
@@ -38,6 +40,7 @@ class ofApp : public ofBaseApp{
 		float prevY;
 
 		ofxIntSlider nSlider;
+		ofxIntSlider waveSlider;
 		ofxPanel gui;
 
 		glm::vec3 center;

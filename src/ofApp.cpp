@@ -25,16 +25,23 @@ void ofApp::setup(){
 	ofSetCircleResolution(40);
 
 	gui.setup();
-	gui.add(nSlider.setup("n", 1, 1, 20));
+	gui.add(nSlider.setup("n", 1, 1, 80));
+	gui.add(waveSlider.setup("Wave Type", 0, 0, 1));
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	
+	
 	if (circles.size() != nSlider) {
 		circles.clear();
 		for (int i = 0; i < nSlider; i++) {
 			circles.push_back(CircleClass(i));
+		}
+	}
+	if (circles[0].waveType != waveSlider) {
+		for (int i = 0; i < nSlider; i++) {
+			circles[i].setWaveType(waveSlider);
 		}
 	}
 
@@ -142,6 +149,10 @@ void ofApp::windowResized(int w, int h){
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
 
+}
+
+void ofApp::ringButtonPressed()
+{
 }
 
 //--------------------------------------------------------------
