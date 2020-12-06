@@ -3,7 +3,7 @@
 
 class CircleClass {
 public:
-	CircleClass(int i);
+	CircleClass(int i, int ir);
 	~CircleClass();
 
 	void setup();
@@ -25,8 +25,8 @@ public:
 	glm::vec3 prevPoint;
 
 	int waveType;
-private:
-
-	float rotation = 0.0;
 	float radius;
+	int initRadius;
+private:
+	float rotation = 0.0;
 };

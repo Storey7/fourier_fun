@@ -8,7 +8,6 @@ Can use GUI to increase the number of iterations or the type of wave.
 
 ## To Do 
 - Add more wave types.
-- Add Gui controls for speed and radius. 
 - Add color control / more tracelines. 
 
 ## Resources

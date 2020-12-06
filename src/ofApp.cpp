@@ -27,6 +27,7 @@ void ofApp::setup(){
 	gui.setup();
 	gui.add(nSlider.setup("n", 1, 1, 80));
 	gui.add(waveSlider.setup("Wave Type", 0, 0, 1));
+	gui.add(radiusSlider.setup("Radius", 150, 150, 300));
 }
 
 //--------------------------------------------------------------
@@ -35,15 +36,26 @@ void ofApp::update(){
 	
 	if (circles.size() != nSlider) {
 		circles.clear();
+		wave.clear();
 		for (int i = 0; i < nSlider; i++) {
-			circles.push_back(CircleClass(i));
+			circles.push_back(CircleClass(i, radiusSlider));
 		}
 	}
 	if (circles[0].waveType != waveSlider) {
+		wave.clear();
 		for (int i = 0; i < nSlider; i++) {
 			circles[i].setWaveType(waveSlider);
 		}
 	}
+	if (circles[0].initRadius != radiusSlider) {
+		circles.clear();
+		wave.clear();
+		for (int i = 0; i < nSlider; i++) {
+			circles.push_back(CircleClass(i, radiusSlider));
+		}
+	}
+	radius = radiusSlider * (4 / (n * PI));
+
 
 	circles[0].update({ 0,0,0 });
 	prevPointSum = { 0,0,0 };

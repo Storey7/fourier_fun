@@ -41,6 +41,7 @@ class ofApp : public ofBaseApp{
 
 		ofxIntSlider nSlider;
 		ofxIntSlider waveSlider;
+		ofxIntSlider radiusSlider;
 		ofxPanel gui;
 
 		glm::vec3 center;

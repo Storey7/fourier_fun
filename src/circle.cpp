@@ -1,13 +1,14 @@
 #include "circle.h"
 
-CircleClass::CircleClass(int i)
+CircleClass::CircleClass(int i, int ir)
 {
 	index = i;
 	n = index * 2 + 1;
 	posX = 0;
 	posY = 0;
 	rotateSpeed = 0.02;
-	radius = 150 * (4 / (n * PI));
+	initRadius = ir;
+	radius = initRadius * (4 / (n * PI));
 	waveType = 0;
 	
 	//initial values
@@ -35,11 +36,11 @@ void CircleClass::update(glm::vec3 prevPoint)
 	angle = ofWrap(angle, 0, TWO_PI);
 
 	if (waveType == 0) { //Square
-		radius = 150 * (4 / (n * PI));
+		radius = initRadius * (4 / (n * PI));
 		n = index * 2 + 1;
 	}
 	else if (waveType == 1) {
-		radius = 150 * (1 / (n * PI));
+		radius = initRadius * (1 / (n * PI));
 		n = index+1;
 	}
 
